@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Sparkles, Gift, Tag } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
+import festivalMain from '../../pic1.jpg'
+import festivalOffer1 from '../../istockphoto-1201024668-612x612.jpg'
+import festivalOffer2 from '../../istockphoto-1300966679-612x612.jpg'
+import festivalOffer3 from '../../istockphoto-1409728562-612x612.jpg'
 
 const FestivalOffers = () => {
   const [selectedFestival, setSelectedFestival] = useState(null)
@@ -95,16 +99,48 @@ const FestivalOffers = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
       <div className={`bg-gradient-to-r ${currentFestival.color} rounded-lg shadow-lg p-8 mb-8 text-white`}>
-        <div className="flex items-center gap-4 mb-4">
-          <span className="text-6xl">{currentFestival.icon}</span>
+        <div className="grid lg:grid-cols-[2fr,3fr] gap-8 items-center">
           <div>
-            <h1 className="text-4xl font-bold mb-2">{currentFestival.name} Special Offers</h1>
-            <p className="text-xl">{currentFestival.description}</p>
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-6xl">{currentFestival.icon}</span>
+              <div>
+                <h1 className="text-4xl font-bold mb-2">
+                  {currentFestival.name} Special Offers
+                </h1>
+                <p className="text-xl">{currentFestival.description}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 mt-4">
+              <Tag size={24} />
+              <span className="text-lg font-semibold">
+                Up to 50% OFF on Selected Items
+              </span>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center gap-2 mt-4">
-          <Tag size={24} />
-          <span className="text-lg font-semibold">Up to 50% OFF on Selected Items</span>
+          <div className="relative">
+            <img
+              src={festivalMain}
+              alt="Festival special offer banner"
+              className="w-full h-56 md:h-64 lg:h-72 object-cover rounded-xl shadow-xl border-4 border-white/70"
+            />
+            <div className="hidden md:flex gap-3 absolute -bottom-4 left-4">
+              <img
+                src={festivalOffer1}
+                alt="Festive fashion offer 1"
+                className="w-24 h-24 object-cover rounded-lg shadow-lg border-2 border-white/80"
+              />
+              <img
+                src={festivalOffer2}
+                alt="Festive fashion offer 2"
+                className="w-24 h-24 object-cover rounded-lg shadow-lg border-2 border-white/80"
+              />
+              <img
+                src={festivalOffer3}
+                alt="Festive fashion offer 3"
+                className="w-24 h-24 object-cover rounded-lg shadow-lg border-2 border-white/80"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
